@@ -1,0 +1,66 @@
+<ion-view class="hasBackground" view-title="RideON" hide-back-button="true">
+  <ion-nav-buttons side="secondary">
+    <button type="button"class="button button-clear" ng-click="goAccount()"><i class="icon ion-android-person"></i></button>
+  </ion-nav-buttons>
+  <ion-content scroll="false">
+    <button type="button" class="button button-block button-positive" ng-click="search()"><i class="icon ion-android-search"> </i>Search For Ride</button>
+    <button type="button" class="button button-block button-positive" ng-click="drive()"><i class="icon ion-android-car"> </i>Host A Ride</button>
+    <div class="item item-divider" style="text-align:center">
+      <i class="icon ion-android-notifications"> </i> My Rides
+    </div>
+
+    <ion-scroll style="height:300px" class="list">
+      <div ng-hide="rides" class="card">
+        <div class="item item-text-wrap">
+          <i class="icon ion-android-sad"> </i>
+          You don't have rides
+        </div>
+      </div>
+
+      <div ng-show="rides" class="card" ng-repeat="card in cards">
+        <div class="item item-text-wrap">
+          <p>
+            From: {{card.from}}
+          </p>
+          <p>
+            To: {{card.to}}
+          </p>
+          <p>
+            Date: {{card.date}}
+          </p>
+          <p>
+            Time: {{card.time}}
+          </p>
+          <p>
+            Driver: {{card.driver}}
+          </p>
+          <button type="button" class="button button-clear button-assertive" ng-click="kill(card)">Cancel</button>
+        </div>
+      </div>
+    </ion-scroll>
+
+    <button type="button" class="bar bar-footer button-full bar-dark" ng-click="logout()">Logout</button>
+  </ion-content>
+</ion-view>
+
+<script id="contact-modal.html" type="text/ng-template">
+  <div class="modal" style="width: 90%; height: 80%; top: 10%; left: 5%; right: 5%; bottom: 10%;">
+    <ion-content>
+
+      <div class="item item-input">
+      <i class="icon ion-android-sad"> </i>
+        Sorry, there is nothing here
+      </div>
+
+      <button class="button button-full button-clear" ng-click="closeModal()">Exit</button>
+    </ion-content>
+  </div>
+</script>
+
+<!-- <br>
+<label class="item item-input">
+  <span class="input-label">Password</span>
+  <input type="password" ng-model="user.password">
+</label>
+
+<button type="button" class="button button-full button-assertive" ng-click="change()">Change Password</button> -->

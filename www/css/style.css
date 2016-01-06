@@ -1,0 +1,15 @@
+/* Empty. Add your own CSS if you like */
+
+ion-view {
+  background: url('../img/unsplash.jpg') no-repeat 50% 50% fixed;
+  background-size:cover;
+}
+
+.card {
+  text-align: center;
+}
+
+.hidden {
+  display:none!important;
+  visibility:hidden;
+}

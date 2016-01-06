@@ -1,0 +1,68 @@
+<ion-view view-title="RideON">
+  <ion-content scroll="true">
+    <div ng-style="depStyle" class="departure">
+      <label class="item item-divider">
+        <span class="input-label"><b>Departure Location</b></span>
+      </label>
+        <ion-radio ng-value="location.place" ng-model="depart" ng-change="changeLocation(location)" ng-repeat="location in locations">
+          {{location.place}}
+        </ion-radio>
+        <button class="button button-block button-positive" ng-click="departFunc()">Next</button>
+    </div>
+    <div ng-style="destStyle" class="destination">
+      <label class="item item-divider">
+        <span class="input-label"><b>Destination Location</b></span>
+      </label>
+      <ion-radio ng-value="location.place" ng-model="checked" ng-change="changeLocation(location)" ng-repeat="location in locations">
+        {{location.place}}
+      </ion-radio>
+      <button ng-style="destStyle" class="button button-block button-positive" ng-click="destinationFunc()">Next</button>
+    </div>
+    <div ng-style="dateStyle" class="date">
+      <label class="item item-input">
+        <span class="input-label">Date</span>
+        <!-- <input type="text" ng-model="ride.date" placeholder="YY/MM/DD"> -->
+        <input type="date" ng-model="ride.date">
+      </label>
+      <!-- <button class="button button-block button-positive" ng-click="dateFunc()">Next</button> -->
+    </div>
+    <div ng-style="dateStyle" class="time">
+      <label class="item item-input">
+        <span class="input-label">Departing Time</span>
+        <!-- <input type="text" ng-model="ride.time" placeholder="13:00"> -->
+        <input type="time" ng-model="ride.time">
+      </label>
+      <!-- <button class="button button-block button-positive" ng-click="timeFunc()">Next</button> -->
+    </div>
+    <div ng-style="dateStyle" class="cost">
+      <label class="item item-input">
+        <span class="input-label">Cost ($)</span>
+        <input type="number" ng-model="ride.cost" placeholder="10">
+      </label>
+    </div>
+    <div ng-style="dateStyle" class="seats">
+      <label class="item item-input">
+        <span class="input-label">Seats Available</span>
+        <input type="number" ng-model="ride.seats" placeholder="4">
+      </label>
+    </div>
+    <div ng-style="dateStyle" class="padding">
+      <button class="button button-block button-positive" ng-click="submit(ride)">Submit</button>
+    </div>
+  </ion-content>
+</ion-view>
+
+<script id="contact-modal.html" type="text/ng-template">
+  <div class="modal" style="width: 90%; height: 80%; top: 10%; left: 5%; right: 5%; bottom: 10%;">
+    <ion-content>
+      <div class="list">
+        <label class="item item-input">
+
+        <span ng-bind="errorMsg" style="white-space:normal"></span>
+        </label>
+      </div>
+
+      <button class="button button-full button-assertive" ng-click="closeModal()">Okay</button>
+    </ion-content>
+  </div>
+</script>
